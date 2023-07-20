@@ -2,7 +2,7 @@
 
 public class FizzBuzzWriter
 {
-    public FizzBuzzWriter(TextWriter writer)
+    public FizzBuzzWriter(TextWriter writer, IFizzBuzzer fizzBuzzer)
     {
     }
 

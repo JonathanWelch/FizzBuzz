@@ -11,7 +11,7 @@ public class FizzBuzzWriterTests
     {
         var textWriterMock = new Mock<TextWriter>();
         var fizzBuzzerMock = new Mock<IFizzBuzzer>();
-        var writer = new FizzBuzzWriter(textWriterMock.Object);
+        var writer = new FizzBuzzWriter(textWriterMock.Object, fizzBuzzerMock.Object);
 
         writer.Write(1, 2);
 
