@@ -13,6 +13,7 @@ public class FizzBuzzerTests
     [TestCase("Fizz", 9)]
     [TestCase("Buzz", 10)]
     [TestCase("Fizzbuzz", 15)]
+    [TestCase("Fizzbuzz", 30)]
 
     public void CanGenerateFizzBuzzFromNumber(string expected, int number)
     {
