@@ -8,6 +8,6 @@ public class FizzBuzzWriter
 
     public void Write(int startValue, int endValue)
     {
-        throw new NotImplementedException();
+        
     }
 }
