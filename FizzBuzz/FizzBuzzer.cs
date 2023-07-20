@@ -2,12 +2,17 @@
 
 public class FizzBuzzer : IFizzBuzzer
 {
+    private readonly List<IFizzBuzzRule> _rules;
+
+    public FizzBuzzer(List<IFizzBuzzRule> rules)
+    {
+        _rules = rules;
+    }
+
     public string Generate(int number)
     {
-        if (number % 3 == 0 && number % 5 == 0) return "Fizzbuzz";
+        var result = _rules.FirstOrDefault(rule => rule.Applies(number))?.GetResult(number);
 
-        if (number % 5 == 0) return "Buzz";
-
-        return number % 3 == 0 ? "Fizz" : number.ToString();
+        return result ?? throw new InvalidOperationException("No rule applies for the given number.");
     }
 }

@@ -17,7 +17,15 @@ public class FizzBuzzerTests
 
     public void CanGenerateFizzBuzzFromNumber(string expected, int number)
     {
-        var fizzBuzzer = new FizzBuzzer();
+        var fizzBuzzRules = new List<IFizzBuzzRule>
+        {
+            new FizzBuzzRule(),
+            new FizzRule(),
+            new BuzzRule(),
+            new DefaultRule()
+        };
+
+        var fizzBuzzer = new FizzBuzzer(fizzBuzzRules);
         var fizzBuzzed = fizzBuzzer.Generate(number);
 
         Assert.That(fizzBuzzed, Is.EqualTo(expected));

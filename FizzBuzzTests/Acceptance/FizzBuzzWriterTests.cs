@@ -9,7 +9,16 @@ public class FizzBuzzWriterTests
     public void CanWriteFizzBuzz()
     {
         var stringWriter = new StringWriter();
-        var fizzBuzzer = new FizzBuzzer();
+
+        var fizzBuzzRules = new List<IFizzBuzzRule>
+        {
+            new FizzBuzzRule(),
+            new FizzRule(),
+            new BuzzRule(),
+            new DefaultRule()
+        };
+
+        var fizzBuzzer = new FizzBuzzer(fizzBuzzRules);
         var fizzBuzzWriter = new FizzBuzzWriter(stringWriter, fizzBuzzer);
 
         fizzBuzzWriter.Write(1, 20);
