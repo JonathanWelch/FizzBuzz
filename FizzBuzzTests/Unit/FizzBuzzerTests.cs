@@ -5,44 +5,16 @@ namespace FizzBuzzTests.Unit;
 [TestFixture]
 public class FizzBuzzerTests
 {
-    [Test]
-    public void CanGenerateFizzBuzzFromNumber()
+    [TestCase("1", 1)]
+    [TestCase("2", 2)]
+    [TestCase("Fizz", 3)]
+    [TestCase("Buzz", 5)]
+    public void CanGenerateFizzBuzzFromNumber(string expected, int number)
     {
         var fizzBuzzer = new FizzBuzzer();
+        var fizzBuzzed = fizzBuzzer.Generate(number);
 
-        var fizzBuzzed = fizzBuzzer.Generate(1);
-
-        Assert.That(fizzBuzzed, Is.EqualTo("1"));
-    }
-
-    [Test]
-    public void CanGenerateFizzBuzzFromAnotherNumber()
-    {
-        var fizzBuzzer = new FizzBuzzer();
-
-        var fizzBuzzed = fizzBuzzer.Generate(2);
-
-        Assert.That(fizzBuzzed, Is.EqualTo("2"));
-    }
-
-    [Test]
-    public void CanGenerateFizz()
-    {
-        var fizzBuzzer = new FizzBuzzer();
-
-        var fizzBuzzed = fizzBuzzer.Generate(3);
-
-        Assert.That(fizzBuzzed, Is.EqualTo("Fizz"));
-    }
-
-    [Test]
-    public void CanGenerateBuzz()
-    {
-        var fizzBuzzer = new FizzBuzzer();
-
-        var fizzBuzzed = fizzBuzzer.Generate(5);
-
-        Assert.That(fizzBuzzed, Is.EqualTo("Buzz"));
+        Assert.That(fizzBuzzed, Is.EqualTo(expected));
     }
 
 }
