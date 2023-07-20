@@ -24,4 +24,15 @@ public class FizzBuzzerTests
 
         Assert.That(fizzBuzzed, Is.EqualTo("2"));
     }
+
+    [Test]
+    public void CanGenerateFizz()
+    {
+        var fizzBuzzer = new FizzBuzzer();
+
+        var fizzBuzzed = fizzBuzzer.Generate(3);
+
+        Assert.That(fizzBuzzed, Is.EqualTo("Fizz"));
+    }
+
 }
