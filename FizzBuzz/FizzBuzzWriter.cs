@@ -2,10 +2,12 @@
 
 public class FizzBuzzWriter
 {
+    private readonly TextWriter _writer;
     private readonly IFizzBuzzer _fizzBuzzer;
 
     public FizzBuzzWriter(TextWriter writer, IFizzBuzzer fizzBuzzer)
     {
+        _writer = writer;
         _fizzBuzzer = fizzBuzzer;
     }
 
@@ -13,7 +15,7 @@ public class FizzBuzzWriter
     {
         for (var i = startValue; i <= endValue; i++)
         {
-            _fizzBuzzer.Generate(i);
+            _writer.WriteLine(_fizzBuzzer.Generate(i));
         }
     }
 }
